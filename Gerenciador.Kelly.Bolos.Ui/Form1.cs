@@ -24,6 +24,18 @@ namespace Gerenciador.Kelly.Bolos.Ui
             string temp = loginClass.Logar();
 
             MessageBox.Show(temp);
+
+            if(temp ==  "Logado com sucesso!")
+            {
+                HomePage home = new HomePage();
+                home.Show();
+                this.Hide();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

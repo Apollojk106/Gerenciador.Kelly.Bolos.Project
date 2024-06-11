@@ -12,7 +12,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     internal class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=jk106;database=keebolos";
+        const string conexao = "server=localhost;uid=root;pwd=jk106;database=kellybolos";
 
         public bool VerificarUsuario(string Email)
         {
@@ -52,6 +52,8 @@ namespace Gerenciador.Kelly.Bolos.Bo
         }
 
         public bool LogarUsuario(string Email, string Senha)
+        
+        
         {
             try
             {
@@ -93,7 +95,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
         public string LerSaltKey(string Email)
         {
-            string query = $"SELECT SaltKey FROM Usuario WHERE Email = '{Email}'";
+            string query = $"SELECT SaltKey FROM Usuario WHERE Email = @Email;";
 
             try
             {
@@ -106,6 +108,8 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
                     using (MySqlCommand comando = new MySqlCommand(query, Conexao))
                     {
+
+                        comando.Parameters.AddWithValue("@Email", Email);
 
                         using (MySqlDataReader leitor = comando.ExecuteReader())
                         {
@@ -122,7 +126,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                             }
                             else
                             {
-                                return "Nenhum Salt.";
+                                return salt;
                             }
                         }
                     }
@@ -148,5 +152,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
         }
+
+
     }
 }

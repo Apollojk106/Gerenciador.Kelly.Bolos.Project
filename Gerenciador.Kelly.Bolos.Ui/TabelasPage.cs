@@ -16,5 +16,31 @@ namespace Gerenciador.Kelly.Bolos.Ui
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomePage page = new HomePage();
+            page.Show();
+            this.Hide();
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            AdicionarPage page = new AdicionarPage();
+            page.Show();
+            this.Hide();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Form1 page = new Form1();
+            page.Show();
+            this.Hide();
+        }
     }
 }

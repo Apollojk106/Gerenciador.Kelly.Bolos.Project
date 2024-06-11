@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdiocionarClass.cs" />
     <Compile Include="BancoDeDadosClass.cs" />
     <Compile Include="LoginClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
