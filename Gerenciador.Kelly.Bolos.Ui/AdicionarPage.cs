@@ -62,7 +62,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
             AdiocionarClass adiocionar = new AdiocionarClass(
                 txtNome.Text, txtItem.Text, txtKg.Text, txtValorGasto.Text, txtValorCobrado.Text);
-            string temp = adiocionar.Adicionar(Columns, Values);
+            string temp = adiocionar.Adicionar(Columns, Values, txtData.Text);
 
             MessageBox.Show(temp);
 

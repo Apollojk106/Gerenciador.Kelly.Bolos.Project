@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 
 namespace Gerenciador.Kelly.Bolos.Bo
@@ -90,7 +91,12 @@ namespace Gerenciador.Kelly.Bolos.Bo
             {
                 return false;
             }
+        }
 
+        public string AdicionarPedido(string Nome, string Item, string Kg, string ValorGasto, string ValorCobrado, string Columns, string Values) 
+        {
+            
+        
         }
 
         public string LerSaltKey(string Email)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -30,8 +31,14 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
         }
 
-        public string Adicionar(string Columns, string Values) 
+        public string Adicionar(string Columns, string Values, string Data) 
         {
+            if (Data == "")
+            {
+                DateTime dataAtual = DateTime.Today;
+                Data = dataAtual.ToString("dd/MM/yyyy");
+            }
+
             if (StringNulo(Nome) ||
                 StringNulo(Item) ||
                 StringNulo(Kg) ||
@@ -53,11 +60,27 @@ namespace Gerenciador.Kelly.Bolos.Bo
             {
                 return "ValorCobrado contem letras";
             }
-            else 
+            
+            else if (!VerificarData(Data))
+            {
+                return "Data Incorreta";
+            }
+            else
             {
                 return "Adicionado com sucesso!";
+
+                BancoDeDadosClass Banco = new BancoDeDadosClass();
+                Banco.AdicionarPedido(Nome, Item, Kg, ValorGasto, ValorCobrado, Columns, Values);
             }
         
+        }
+
+        private bool VerificarData(string dataStr, string formato = "dd/MM/yyyy") 
+        {
+            DateTime data;
+            // Tenta converter a string para um objeto DateTime
+            bool sucesso = DateTime.TryParseExact(dataStr, formato, CultureInfo.InvariantCulture, DateTimeStyles.None, out data);
+            return sucesso;
         }
 
         private bool StringNulo(string t)
