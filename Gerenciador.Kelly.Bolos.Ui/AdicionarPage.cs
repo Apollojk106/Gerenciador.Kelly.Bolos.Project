@@ -56,9 +56,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
             string Values = "";
             string Columns = "";
-            if (ckbEndereço.Checked) { Values += $",{txtEndereço.Text}"; Columns = ",Endereço"; }
-            if (ckbDescrição.Checked) { Values += $",{txtDescrição.Text}"; Columns = ",Descrição"; }
-            if (cbkData.Checked) { Values += $",{txtData.Text}"; Columns = ",Data"; }
+            if (ckbEndereço.Checked) { Values += $",'{txtEndereço.Text}'"; Columns = ",Endereço"; }
+            if (ckbDescrição.Checked) { Values += $",'{txtDescrição.Text}'"; Columns = ",Descrição"; }
+            if (cbkData.Checked) { Values += $",'{txtData.Text}'"; Columns = ",Data"; }
+            
 
             AdiocionarClass adiocionar = new AdiocionarClass(
                 txtNome.Text, txtItem.Text, txtKg.Text, txtValorGasto.Text, txtValorCobrado.Text);
