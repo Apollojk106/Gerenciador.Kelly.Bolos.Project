@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Protobuf.WellKnownTypes;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -67,12 +68,23 @@ namespace Gerenciador.Kelly.Bolos.Bo
             }
             else
             {
-                return "Adicionado com sucesso!";
+                Values += $",'{ FormatarData(Data.Replace('-','/'))}'";
+                Columns += $", Data";
+                
 
-                BancoDeDadosClass Banco = new BancoDeDadosClass();
-                Banco.AdicionarPedido(Nome, Item, Kg, ValorGasto, ValorCobrado, Columns, Values);
+                      BancoDeDadosClass Banco = new BancoDeDadosClass();
+                return    Banco.AdicionarPedido(Nome, Item, Kg, ValorGasto, ValorCobrado, Columns, Values);
             }
         
+        }
+
+        public string FormatarData(string data) 
+        {
+            String[] temp = data.Split('/');
+
+            String DataFinal = $"{temp[2]}-{temp[1]}-{temp[0]}";
+
+            return DataFinal;
         }
 
         private bool VerificarData(string dataStr, string formato = "dd/MM/yyyy") 
