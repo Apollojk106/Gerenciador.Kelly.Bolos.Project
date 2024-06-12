@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
@@ -10,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Gerenciador.Kelly.Bolos.Bo
 {
-    internal class BancoDeDadosClass
+    public class BancoDeDadosClass
 
     {
         const string conexao = "server=localhost;uid=root;pwd=jk106;database=kellybolos";
@@ -50,6 +51,29 @@ namespace Gerenciador.Kelly.Bolos.Bo
             }
 
 
+        }
+
+        public DataTable ObterTabelaDePedido() 
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+                    string query = "select Nome, Item, Data from pedidos;"; // Substitua pelo nome da sua tabela
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return dataTable;
         }
 
         public bool LogarUsuario(string Email, string Senha)
