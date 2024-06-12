@@ -101,7 +101,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 {
                     Conecao.Open();
              
-                    string query = $"INSERT INTO Pedido(Nome, Item, Kg, ValorGasto, ValorCobrado {Columns}) VALUES('{Nome}','{Item}','{Kg}','{ValorGasto}','{ValorCobrado}'{Values});";
+                    string query = $"INSERT INTO Pedidos(Nome, Item, Kg, ValorGasto, ValorCobrado {Columns}) VALUES('{Nome}','{Item}','{Kg}','{ValorGasto}','{ValorCobrado}'{Values});";
 
                     using (var cmd = new MySqlCommand(query, Conecao))
                     {                                          
@@ -117,12 +117,6 @@ namespace Gerenciador.Kelly.Bolos.Bo
             {
                 return ex.ToString();
             }
-        }
-
-        public string AdicionarPedido(string Nome, string Item, string Kg, string ValorGasto, string ValorCobrado, string Columns, string Values) 
-        {
-            
-        
         }
 
         public string LerSaltKey(string Email)
