@@ -95,6 +95,32 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
         public string AdicionarPedido(string Nome, string Item, string Kg, string ValorGasto, string ValorCobrado, string Columns, string Values) 
         {
+            try
+            {
+                using (var Conecao = new MySqlConnection(conexao))
+                {
+                    Conecao.Open();
+             
+                    string query = $"INSERT INTO Pedido(Nome, Item, Kg, ValorGasto, ValorCobrado {Columns}) VALUES('{Nome}','{Item}','{Kg}','{ValorGasto}','{ValorCobrado}'{Values});";
+
+                    using (var cmd = new MySqlCommand(query, Conecao))
+                    {                                          
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    Conecao.Close();
+                    return "Cadastro Realizado!";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+
+        public string AdicionarPedido(string Nome, string Item, string Kg, string ValorGasto, string ValorCobrado, string Columns, string Values) 
+        {
             
         
         }
