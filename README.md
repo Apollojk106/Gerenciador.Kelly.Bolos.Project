@@ -26,3 +26,5 @@ create table Pedido(
     Endereço varchar(50),
     Descrição varchar(100)
 );
+
+create table Items(Bolo varchar(50), Doce varchar(50), Sazonal varchar(50));
