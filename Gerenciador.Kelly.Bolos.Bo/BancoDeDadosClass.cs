@@ -16,42 +16,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     {
         const string conexao = "server=localhost;uid=root;pwd=jk106;database=KellyBolos";
 
-        public bool VerificarUsuario(string Email)
-        {
-            try
-            {
-                using (var conexaoConnection = new MySqlConnection(conexao))
-                {
-
-                    conexaoConnection.Open();
-
-                    string query = $"SELECT * FROM usuario WHERE Email = '{Email}'";
-
-                    using (var command = new MySqlCommand(query, conexaoConnection))
-                    {
-                       
-                        using (var reader = command.ExecuteReader())
-                        {
-                            if (reader.HasRows)
-                            {
-                                return true;
-                            }
-                            else
-                            {
-                                return false;
-                            }
-                        }
-                    }
-                }
-
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-
-
-        }
+        //HomePage
 
         public float[] RetornarFaturamento() 
         {
@@ -116,6 +81,83 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return resultado;
         }
 
+        public string[] ItemMaisRepetidos() 
+        {
+            string[] resultados = new string[3];
+
+            List<String> Items = ObterListaDeItem();
+
+            List<String> MaisRepetidos = ObterMaisRepetidos(Items);
+
+            int index = 0;
+            foreach (string Item in MaisRepetidos) 
+            {
+                resultados[index] = Item;
+                index++;
+                if (index == 3) { break; }
+            }
+
+            return resultados;
+        }
+
+        private List<string> ObterMaisRepetidos(List<string> lista) //Ninguem sabe como esta a cabeça do palhaço
+        {
+            if (lista == null || lista.Count == 0)
+            {
+                return new List<string>();
+            }
+
+            // Dicionário para armazenar a contagem de cada item
+            Dictionary<string, int> contagemItens = new Dictionary<string, int>();
+
+            foreach (var item in lista)
+            {
+                if (contagemItens.ContainsKey(item))
+                {
+                    contagemItens[item]++;
+                }
+                else
+                {
+                    contagemItens[item] = 1;
+                }
+            }
+
+            // Retornar os itens com a ordem decrescente
+            var OrdemDecrescente = contagemItens.OrderByDescending(pair => pair.Value);
+
+            //Transformar em uma lista com somente string
+            return OrdemDecrescente.Select(pair => $"{pair.Key}").ToList();
+
+        }
+
+        public List<string> ObterListaDeItem()
+        {
+            string query = $"SELECT Item FROM Pedidos";
+
+            List<string> items = new List<string>();
+
+            using (MySqlConnection connection = new MySqlConnection(conexao))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader["Item"].ToString() != "")
+                    {
+                        items.Add(reader["Item"].ToString());
+                    }
+                }
+            }
+
+            return items;
+        }
+
+        //TabelasPage
+
         public DataTable ObterTabelaDePedido() 
         {
             DataTable dataTable = new DataTable();
@@ -155,12 +197,13 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
                 while (reader.Read())
                 {
-                    items.Add(reader[$"{Column}"].ToString());
+                    if (!items.Contains(reader[$"{Column}"].ToString()) && reader[$"{Column}"].ToString() != "") {
+                        items.Add(reader[$"{Column}"].ToString());
+                    }
                 }
             }
 
-            return items;
-        
+            return items;     
         }
 
         public DataTable ObterTabelaDoFiltro(string column, string resultado) 
@@ -172,7 +215,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 using (MySqlConnection connection = new MySqlConnection(conexao))
                 {
                     connection.Open();
-                    string query = $"select Nome,Item,Data,ValorGasto,ValorCobrado from pedidos where {column} = '{resultado}';"; 
+                    string query = $"select Nome,Item,Data,ValorGasto,ValorCobrado from pedidos where {column} like '{resultado}';"; 
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     adapter.Fill(dataTable);
@@ -186,6 +229,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return dataTable;
         }
 
+        //loginPage
         public bool LogarUsuario(string Email, string Senha)             
         {
             try
@@ -225,6 +269,44 @@ namespace Gerenciador.Kelly.Bolos.Bo
             }
         }
 
+        public bool VerificarUsuario(string Email)
+        {
+            try
+            {
+                using (var conexaoConnection = new MySqlConnection(conexao))
+                {
+
+                    conexaoConnection.Open();
+
+                    string query = $"SELECT * FROM usuario WHERE Email = '{Email}'";
+
+                    using (var command = new MySqlCommand(query, conexaoConnection))
+                    {
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+
+        }
+
+        //AdicionarPage
         public string AdicionarPedido(string Nome, string Item, string Kg, string ValorGasto, string ValorCobrado, string Columns, string Values) 
         {
             try
@@ -250,6 +332,8 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 return ex.ToString();
             }
         }
+
+        //criptografia
 
         public string LerSaltKey(string Email)
         {
@@ -310,6 +394,8 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
             }
         }
+
+       
 
 
     }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -46,6 +47,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
             TabelasPage page = new TabelasPage();
             page.Show();
             this.Hide();
+ 
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -53,6 +55,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
             AdicionarPage page = new AdicionarPage();
             page.Show();
             this.Hide();
+            
         }
 
         private void HomePage_Load(object sender, EventArgs e)
@@ -63,6 +66,21 @@ namespace Gerenciador.Kelly.Bolos.Ui
             lblFaturamento.Text = $"R$ {valores[0]}"; //Faturamento
             lblLucro.Text = $"R$ {valores[2]}"; //Lucro 
             lblCusto.Text = $"R$ {valores[1]}"; //Gasto
+
+            string[] ItemMaisRepetidos = banco.ItemMaisRepetidos();
+
+
+
+            int count = 1;
+            foreach (string texto in ItemMaisRepetidos)
+            {
+                lbLista.Items.Add($"{count}º-{texto}");
+                count++;
+            }          
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
 
         }
     }
