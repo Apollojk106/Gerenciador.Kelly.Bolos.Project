@@ -14,7 +14,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     public class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=etec;database=KellyBolos";
+        const string conexao = "server=localhost;uid=root;pwd=jk106;database=KellyBolos";
 
         public bool VerificarUsuario(string Email)
         {

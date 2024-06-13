@@ -46,6 +46,9 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void TabelasPage_Load(object sender, EventArgs e)
         {
+            cbFiltro.Items.Add("Nome");
+            cbFiltro.Items.Add("Item");
+
             BancoDeDadosClass bancoDeDados = new BancoDeDadosClass();
             DataTable dataTable = bancoDeDados.ObterTabelaDePedido();
             if (dataTable != null)
@@ -68,7 +71,25 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbFiltro_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            TabelasClass tabelasClass = new TabelasClass();
+            List<string> items = tabelasClass.BuscarResultado(cbFiltro.Text);
+
+            cbResultado.Items.Clear();
+
+            foreach (string x in items)
+            {
+                if (!cbResultado.Items.Contains(x.ToString()) && x.ToString() != "")
+                {
+                    cbResultado.Items.Add(x.ToString());
+                }
+            }
+
+            cbResultado.Enabled = true;
+        }
+
+        private void cbResultado_SelectedIndexChanged(object sender, EventArgs e)
         {
             BancoDeDadosClass bancoDeDadosClass = new BancoDeDadosClass();
             DataTable dataTable = bancoDeDadosClass.ObterTabelaDoFiltro(cbFiltro.Text, cbResultado.Text);
@@ -78,25 +99,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
             btnLimpar.Enabled = true;
         }
 
-        private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TabelasClass tabelasClass = new TabelasClass();
-            List<string> items = tabelasClass.BuscarResultado(cbFiltro.Text);
-
-            cbResultado.Items.Clear();
-
-            foreach (string x in items) 
-            {
-                if (!cbResultado.Items.Contains(x.ToString()) && x.ToString() != "") 
-                {
-                    cbResultado.Items.Add(x.ToString());
-                }              
-            }
-
-            cbResultado.Enabled = true;
-        }
-
-        private void btnLimpar_Click(object sender, EventArgs e)
+        private void btnLimpar_Click_1(object sender, EventArgs e)
         {
             BancoDeDadosClass bancoDeDados = new BancoDeDadosClass();
             DataTable dataTable = bancoDeDados.ObterTabelaDePedido();
@@ -115,7 +118,6 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
             cbFiltro.Text = "";
             btnLimpar.Enabled = false;
-
         }
     }
 }

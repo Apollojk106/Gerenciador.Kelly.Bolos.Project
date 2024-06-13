@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,17 +13,17 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
         private string resultados { get; set; }
 
-        public TabelasClass() 
+        public TabelasClass()
         {
-            
+
         }
 
         public List<string> BuscarResultado(string filtro)
-        {   
+        {
             BancoDeDadosClass bancoDeDadosClass = new BancoDeDadosClass();
 
             List<string> filtros = bancoDeDadosClass.ObterFiltros(filtro);
-      
+
             return filtros;
         }
     }

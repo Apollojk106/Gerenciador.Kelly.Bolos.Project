@@ -37,10 +37,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.cbResultado = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -122,14 +122,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 458);
+            this.dataGridView1.Size = new System.Drawing.Size(737, 441);
             this.dataGridView1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(425, 22);
+            this.label2.Location = new System.Drawing.Point(480, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 20);
             this.label2.TabIndex = 4;
@@ -147,6 +147,36 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cbFiltro
+            // 
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Location = new System.Drawing.Point(202, 58);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(277, 24);
+            this.cbFiltro.TabIndex = 9;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged_1);
+            // 
+            // cbResultado
+            // 
+            this.cbResultado.Enabled = false;
+            this.cbResultado.FormattingEnabled = true;
+            this.cbResultado.Location = new System.Drawing.Point(510, 57);
+            this.cbResultado.Name = "cbResultado";
+            this.cbResultado.Size = new System.Drawing.Size(254, 24);
+            this.cbResultado.TabIndex = 10;
+            this.cbResultado.SelectedIndexChanged += new System.EventHandler(this.cbResultado_SelectedIndexChanged);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Enabled = false;
+            this.btnLimpar.Location = new System.Drawing.Point(799, 58);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
+            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click_1);
+            // 
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
@@ -157,33 +187,6 @@
             this.rjToggleButton1.TabIndex = 2;
             this.rjToggleButton1.Text = "rjToggleButton1";
             this.rjToggleButton1.UseVisualStyleBackColor = true;
-            // 
-            // cbFiltro
-            // 
-            this.cbFiltro.FormattingEnabled = true;
-            this.cbFiltro.Location = new System.Drawing.Point(202, 58);
-            this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(224, 24);
-            this.cbFiltro.TabIndex = 9;
-            // 
-            // cbResultado
-            // 
-            this.cbResultado.Enabled = false;
-            this.cbResultado.FormattingEnabled = true;
-            this.cbResultado.Location = new System.Drawing.Point(452, 58);
-            this.cbResultado.Name = "cbResultado";
-            this.cbResultado.Size = new System.Drawing.Size(224, 24);
-            this.cbResultado.TabIndex = 10;
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Enabled = false;
-            this.btnLimpar.Location = new System.Drawing.Point(723, 58);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
-            this.btnLimpar.TabIndex = 11;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
             // 
             // TabelasPage
             // 
