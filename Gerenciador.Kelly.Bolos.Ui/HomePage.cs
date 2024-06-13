@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gerenciador.Kelly.Bolos.Bo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,17 @@ namespace Gerenciador.Kelly.Bolos.Ui
             AdicionarPage page = new AdicionarPage();
             page.Show();
             this.Hide();
+        }
+
+        private void HomePage_Load(object sender, EventArgs e)
+        {
+            BancoDeDadosClass banco = new BancoDeDadosClass();
+            float[] valores = banco.RetornarFaturamento();
+
+            lblFaturamento.Text = $"R$ {valores[0]}"; //Faturamento
+            lblLucro.Text = $"R$ {valores[2]}"; //Lucro 
+            lblCusto.Text = $"R$ {valores[1]}"; //Gasto
+
         }
     }
 }

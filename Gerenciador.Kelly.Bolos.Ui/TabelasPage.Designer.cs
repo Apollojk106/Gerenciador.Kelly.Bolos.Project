@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnTables = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(156)))), ((int)(((byte)(82)))));
             this.panel1.Controls.Add(this.rjToggleButton1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.btnTables);
             this.panel1.Controls.Add(this.btnHome);
@@ -70,18 +68,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Modo Escuro";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Location = new System.Drawing.Point(4, 498);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(139, 61);
-            this.btnSair.TabIndex = 4;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAdicionar
             // 
@@ -203,6 +189,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TabelasPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TabelasPage";
             this.Load += new System.EventHandler(this.TabelasPage_Load);
             this.panel1.ResumeLayout(false);
@@ -218,7 +205,6 @@
         private System.Windows.Forms.Panel panel1;
         private RJToggleButton rjToggleButton1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnTables;
         private System.Windows.Forms.Button btnHome;

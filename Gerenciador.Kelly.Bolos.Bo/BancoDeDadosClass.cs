@@ -53,6 +53,69 @@ namespace Gerenciador.Kelly.Bolos.Bo
 
         }
 
+        public float[] RetornarFaturamento() 
+        {
+            float[] Valores = new float[3];
+
+            Valores[1] = RetornarValorGasto();  //Gasto
+            Valores[2] = RetorValorCobredo();   //Lucro
+            Valores[0] = Valores[1] + Valores[2];  //Faturamento
+
+            return Valores;
+        }
+
+        private float RetornarValorGasto() 
+        {
+            float resultado = 0;
+
+            string query = $"SELECT ValorGasto FROM Pedidos";
+            
+            using (MySqlConnection connection = new MySqlConnection(conexao))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader["ValorGasto"] != DBNull.Value)
+                    {
+                        resultado += float.Parse(reader[$"ValorGasto"].ToString());
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
+        private float RetorValorCobredo() 
+        {
+            float resultado = 0;
+
+            string query = $"SELECT ValorCobrado FROM Pedidos";
+
+            using (MySqlConnection connection = new MySqlConnection(conexao))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader["ValorCobrado"] != DBNull.Value)
+                    {
+                        resultado += float.Parse(reader[$"ValorCobrado"].ToString());
+                    }
+                }
+            }
+
+            return resultado;
+        }
+
         public DataTable ObterTabelaDePedido() 
         {
             DataTable dataTable = new DataTable();

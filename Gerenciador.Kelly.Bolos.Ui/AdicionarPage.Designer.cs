@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSair = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
             this.btnTables = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
@@ -54,7 +54,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
             this.ckbDescrição = new System.Windows.Forms.CheckBox();
             this.ckbEndereço = new System.Windows.Forms.CheckBox();
             this.cbkData = new System.Windows.Forms.CheckBox();
@@ -66,7 +65,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(156)))), ((int)(((byte)(82)))));
             this.panel1.Controls.Add(this.rjToggleButton1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnAdicionar);
             this.panel1.Controls.Add(this.btnTables);
             this.panel1.Controls.Add(this.btnHome);
@@ -74,6 +72,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(145, 558);
             this.panel1.TabIndex = 3;
+            // 
+            // rjToggleButton1
+            // 
+            this.rjToggleButton1.AutoSize = true;
+            this.rjToggleButton1.Location = new System.Drawing.Point(9, 249);
+            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
+            this.rjToggleButton1.Name = "rjToggleButton1";
+            this.rjToggleButton1.Size = new System.Drawing.Size(124, 22);
+            this.rjToggleButton1.TabIndex = 2;
+            this.rjToggleButton1.Text = "rjToggleButton1";
+            this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -86,18 +95,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Modo Escuro";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnSair
-            // 
-            this.btnSair.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Location = new System.Drawing.Point(3, 497);
-            this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(139, 61);
-            this.btnSair.TabIndex = 4;
-            this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = false;
-            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // btnAdicionar
             // 
@@ -319,17 +316,6 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // rjToggleButton1
-            // 
-            this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(9, 249);
-            this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
-            this.rjToggleButton1.Name = "rjToggleButton1";
-            this.rjToggleButton1.Size = new System.Drawing.Size(124, 22);
-            this.rjToggleButton1.TabIndex = 2;
-            this.rjToggleButton1.Text = "rjToggleButton1";
-            this.rjToggleButton1.UseVisualStyleBackColor = true;
-            // 
             // ckbDescrição
             // 
             this.ckbDescrição.AutoSize = true;
@@ -392,6 +378,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdicionarPage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdicionarPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -405,7 +392,6 @@
         private System.Windows.Forms.Panel panel1;
         private RJToggleButton rjToggleButton1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Button btnTables;
         private System.Windows.Forms.Button btnHome;
