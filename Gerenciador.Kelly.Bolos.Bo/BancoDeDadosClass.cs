@@ -167,7 +167,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 using (MySqlConnection connection = new MySqlConnection(conexao))
                 {
                     connection.Open();
-                    string query = "select Nome,Item,Kg,ValorGasto,ValorCobrado from pedidos;"; 
+                    string query = "select Nome,Item,Data,ValorGasto,ValorCobrado,ID from pedidos;"; 
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     adapter.Fill(dataTable);
@@ -215,7 +215,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 using (MySqlConnection connection = new MySqlConnection(conexao))
                 {
                     connection.Open();
-                    string query = $"select Nome,Item,Data,ValorGasto,ValorCobrado from pedidos where {column} like '{resultado}';"; 
+                    string query = $"select Nome,Item,Data,ValorGasto,ValorCobrado,ID from pedidos where {column} like '{resultado}';"; 
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     adapter.Fill(dataTable);

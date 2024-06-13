@@ -40,6 +40,7 @@
             this.cbResultado = new System.Windows.Forms.ComboBox();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
+            this.btnDeletar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -155,9 +156,10 @@
             // btnLimpar
             // 
             this.btnLimpar.Enabled = false;
-            this.btnLimpar.Location = new System.Drawing.Point(799, 58);
+            this.btnLimpar.ForeColor = System.Drawing.Color.Red;
+            this.btnLimpar.Location = new System.Drawing.Point(799, 50);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
+            this.btnLimpar.Size = new System.Drawing.Size(104, 31);
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -174,12 +176,26 @@
             this.rjToggleButton1.Text = "rjToggleButton1";
             this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Enabled = false;
+            this.btnDeletar.ForeColor = System.Drawing.Color.Red;
+            this.btnDeletar.Location = new System.Drawing.Point(799, 17);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(104, 30);
+            this.btnDeletar.TabIndex = 12;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Visible = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
             // TabelasPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(228)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(981, 558);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.cbResultado);
             this.Controls.Add(this.cbFiltro);
@@ -214,5 +230,6 @@
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.ComboBox cbResultado;
         private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.Button btnDeletar;
     }
 }

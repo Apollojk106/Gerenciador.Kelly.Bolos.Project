@@ -119,5 +119,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
             cbFiltro.Text = "";
             btnLimpar.Enabled = false;
         }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
