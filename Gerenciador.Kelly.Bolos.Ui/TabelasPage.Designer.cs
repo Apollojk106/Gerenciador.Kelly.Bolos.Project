@@ -38,6 +38,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.cbResultado = new System.Windows.Forms.ComboBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -115,18 +118,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(182, 49);
+            this.dataGridView1.Location = new System.Drawing.Point(182, 88);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(431, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 458);
             this.dataGridView1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(343, 22);
+            this.label2.Location = new System.Drawing.Point(425, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 20);
             this.label2.TabIndex = 4;
@@ -155,12 +158,42 @@
             this.rjToggleButton1.Text = "rjToggleButton1";
             this.rjToggleButton1.UseVisualStyleBackColor = true;
             // 
+            // cbFiltro
+            // 
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Location = new System.Drawing.Point(202, 58);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(224, 24);
+            this.cbFiltro.TabIndex = 9;
+            // 
+            // cbResultado
+            // 
+            this.cbResultado.Enabled = false;
+            this.cbResultado.FormattingEnabled = true;
+            this.cbResultado.Location = new System.Drawing.Point(452, 58);
+            this.cbResultado.Name = "cbResultado";
+            this.cbResultado.Size = new System.Drawing.Size(224, 24);
+            this.cbResultado.TabIndex = 10;
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Enabled = false;
+            this.btnLimpar.Location = new System.Drawing.Point(723, 58);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(88, 23);
+            this.btnLimpar.TabIndex = 11;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            // 
             // TabelasPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(228)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(981, 558);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.cbResultado);
+            this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -189,5 +222,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbFiltro;
+        private System.Windows.Forms.ComboBox cbResultado;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

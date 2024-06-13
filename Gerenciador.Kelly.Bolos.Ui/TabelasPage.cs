@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -56,6 +56,66 @@ namespace Gerenciador.Kelly.Bolos.Ui
             {
                 MessageBox.Show("Erro ao carregar dados.");
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BancoDeDadosClass bancoDeDadosClass = new BancoDeDadosClass();
+            DataTable dataTable = bancoDeDadosClass.ObterTabelaDoFiltro(cbFiltro.Text, cbResultado.Text);
+
+            dataGridView1.DataSource = dataTable;
+
+            btnLimpar.Enabled = true;
+        }
+
+        private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabelasClass tabelasClass = new TabelasClass();
+            List<string> items = tabelasClass.BuscarResultado(cbFiltro.Text);
+
+            cbResultado.Items.Clear();
+
+            foreach (string x in items) 
+            {
+                if (!cbResultado.Items.Contains(x.ToString()) && x.ToString() != "") 
+                {
+                    cbResultado.Items.Add(x.ToString());
+                }              
+            }
+
+            cbResultado.Enabled = true;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            BancoDeDadosClass bancoDeDados = new BancoDeDadosClass();
+            DataTable dataTable = bancoDeDados.ObterTabelaDePedido();
+            if (dataTable != null)
+            {
+                dataGridView1.DataSource = dataTable;
+            }
+            else
+            {
+                MessageBox.Show("Erro ao carregar dados.");
+            }
+
+            cbResultado.Items.Clear();
+            cbResultado.Text = "";
+            cbResultado.Enabled = false;
+
+            cbFiltro.Text = "";
+            btnLimpar.Enabled = false;
+
         }
     }
 }
