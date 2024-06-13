@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -14,7 +14,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     public class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=jk106;database=kellybolos";
+        const string conexao = "server=localhost;uid=root;pwd=etec;database=KellyBolos";
 
         public bool VerificarUsuario(string Email)
         {
@@ -62,7 +62,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
                 using (MySqlConnection connection = new MySqlConnection(conexao))
                 {
                     connection.Open();
-                    string query = "select Nome, Item, Data from pedidos;"; // Substitua pelo nome da sua tabela
+                    string query = "select Nome,Item,Kg,ValorGasto,ValorCobrado from pedidos;"; 
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     adapter.Fill(dataTable);
@@ -76,9 +76,54 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return dataTable;
         }
 
-        public bool LogarUsuario(string Email, string Senha)
+        public List<string> ObterFiltros(string Column) 
+        {
+            string query = $"SELECT {Column} FROM Pedidos";
+
+            List<string> items = new List<string>();
+
+            using (MySqlConnection connection = new MySqlConnection(conexao))
+            {
+                connection.Open();
+
+                MySqlCommand command = new MySqlCommand(query, connection);
+                
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    items.Add(reader[$"{Column}"].ToString());
+                }
+            }
+
+            return items;
         
-        
+        }
+
+        public DataTable ObterTabelaDoFiltro(string column, string resultado) 
+        {
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+                    string query = $"select Nome,Item,Data,ValorGasto,ValorCobrado from pedidos where {column} = '{resultado}';"; 
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                    adapter.Fill(dataTable);
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+            return dataTable;
+        }
+
+        public bool LogarUsuario(string Email, string Senha)             
         {
             try
             {
