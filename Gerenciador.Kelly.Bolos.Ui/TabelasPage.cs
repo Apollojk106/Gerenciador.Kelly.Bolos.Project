@@ -18,6 +18,8 @@ namespace Gerenciador.Kelly.Bolos.Ui
             InitializeComponent();
         }
 
+        string SelectCell;
+
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -59,11 +61,24 @@ namespace Gerenciador.Kelly.Bolos.Ui
             {
                 MessageBox.Show("Erro ao carregar dados.");
             }
+
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Obtenha a célula que foi clicada
+                DataGridViewCell clickedCell = dataGridView1.Rows[e.RowIndex].Cells["ID"];
+                string cellValue = clickedCell.Value.ToString();
 
+                // Faça algo com o valor da célula
+                SelectCell = (cellValue);
+
+                btnDeletar.Visible = true;
+                btnDeletar.Enabled = true;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -122,7 +137,45 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show($"Deseja deletar o pedido: {SelectCell}", "Confirmação", MessageBoxButtons.YesNo);
 
+            // Verifique se o usuário clicou em OK
+            if (result == DialogResult.Yes)
+            {          
+                BancoDeDadosClass banco = new BancoDeDadosClass();
+                banco.DeletarPedido(SelectCell);
+
+                //Recarregar Tabela e esconder Butão
+                DataTable dataTable = banco.ObterTabelaDePedido();
+                if (dataTable != null)
+                {
+                    dataGridView1.DataSource = dataTable;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao carregar dados.");
+                }
+                btnDeletar.Visible = false;
+            }
+            
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows[0].ToString() == "")
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                    SelectCell = (selectedRow.Cells["ID"].Value.ToString());
+
+                }
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Erro com a celula!");
+            }
         }
     }
 }
