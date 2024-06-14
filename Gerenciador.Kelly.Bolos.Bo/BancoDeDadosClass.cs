@@ -14,7 +14,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     public class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=jk106;database=KellyBolos";
+        const string conexao = "server=localhost;uid=root;pwd=etec;database=KellyBolos";
 
         //HomePage
 
@@ -100,14 +100,14 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return resultados;
         }
 
-        private List<string> ObterMaisRepetidos(List<string> lista) //Ninguem sabe como esta a cabeÁa do palhaÁo
+        private List<string> ObterMaisRepetidos(List<string> lista) //Ninguem sabe como esta a cabe√ßa do palha√ßo
         {
             if (lista == null || lista.Count == 0)
             {
                 return new List<string>();
             }
 
-            // Dicion·rio para armazenar a contagem de cada item
+            // Dicion√°rio para armazenar a contagem de cada item
             Dictionary<string, int> contagemItens = new Dictionary<string, int>();
 
             foreach (var item in lista)
@@ -157,6 +157,23 @@ namespace Gerenciador.Kelly.Bolos.Bo
         }
 
         //TabelasPage
+
+        public void DeletarPedido(string ID)
+        {
+            using (var Conecao = new MySqlConnection(conexao))
+            {
+                Conecao.Open();
+
+                string query = $"delete from Pedidos where ID = '{ID}';";
+
+                using (var cmd = new MySqlCommand(query, Conecao))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+
+                Conecao.Close();
+            }
+        }
 
         public DataTable ObterTabelaDePedido() 
         {
