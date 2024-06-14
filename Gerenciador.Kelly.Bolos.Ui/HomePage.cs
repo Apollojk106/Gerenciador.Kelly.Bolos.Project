@@ -83,5 +83,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
         {
 
         }
+
+        private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

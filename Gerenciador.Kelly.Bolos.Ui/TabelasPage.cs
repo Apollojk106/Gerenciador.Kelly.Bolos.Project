@@ -25,20 +25,6 @@ namespace Gerenciador.Kelly.Bolos.Ui
             this.Close();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-            HomePage page = new HomePage();
-            page.Show();
-            this.Hide();
-        }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            AdicionarPage page = new AdicionarPage();
-            page.Show();
-            this.Hide();
-        }
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             Form1 page = new Form1();
@@ -81,6 +67,23 @@ namespace Gerenciador.Kelly.Bolos.Ui
             }
         }
 
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows[0].ToString() == "")
+                {
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                    SelectCell = (selectedRow.Cells["ID"].Value.ToString());
+
+                }
+            }
+            catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Erro com a celula!");
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -131,8 +134,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
             cbResultado.Text = "";
             cbResultado.Enabled = false;
 
+
             cbFiltro.Text = "";
             btnLimpar.Enabled = false;
+            btnDeletar.Visible = false;
         }
 
         private void btnDeletar_Click(object sender, EventArgs e)
@@ -160,22 +165,18 @@ namespace Gerenciador.Kelly.Bolos.Ui
             
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void btnHome_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows[0].ToString() == "")
-                {
-                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            HomePage page = new HomePage();
+            page.Show();
+            this.Hide();
+        }
 
-                    SelectCell = (selectedRow.Cells["ID"].Value.ToString());
-
-                }
-            }
-            catch (System.NullReferenceException)
-            {
-                MessageBox.Show("Erro com a celula!");
-            }
+        private void btnAdicionar_Click_1(object sender, EventArgs e)
+        {
+            AdicionarPage page = new AdicionarPage();
+            page.Show();
+            this.Hide();
         }
     }
 }

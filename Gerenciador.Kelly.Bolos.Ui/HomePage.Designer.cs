@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.btnTables = new System.Windows.Forms.Button();
-            this.btnAdicionar = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rjToggleButton1 = new Gerenciador.Kelly.Bolos.Ui.RJToggleButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,50 +43,21 @@
             this.label8 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label12 = new System.Windows.Forms.Label();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.lbLista = new System.Windows.Forms.ListBox();
+            this.btnAdicionar = new System.Windows.Forms.Button();
+            this.btnTables = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnHome
-            // 
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Location = new System.Drawing.Point(3, 3);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(139, 61);
-            this.btnHome.TabIndex = 1;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // btnTables
-            // 
-            this.btnTables.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTables.Location = new System.Drawing.Point(4, 67);
-            this.btnTables.Name = "btnTables";
-            this.btnTables.Size = new System.Drawing.Size(139, 61);
-            this.btnTables.TabIndex = 2;
-            this.btnTables.Text = "Tabelas";
-            this.btnTables.UseVisualStyleBackColor = true;
-            this.btnTables.Click += new System.EventHandler(this.btnTables_Click);
-            // 
-            // btnAdicionar
-            // 
-            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdicionar.Location = new System.Drawing.Point(4, 134);
-            this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(139, 61);
-            this.btnAdicionar.TabIndex = 3;
-            this.btnAdicionar.Text = "Adicionar";
-            this.btnAdicionar.UseVisualStyleBackColor = true;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(156)))), ((int)(((byte)(82)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.rjToggleButton1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnAdicionar);
@@ -98,29 +65,30 @@
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(145, 556);
+            this.panel1.Size = new System.Drawing.Size(148, 561);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(9, 249);
+            this.rjToggleButton1.Location = new System.Drawing.Point(12, 274);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
             this.rjToggleButton1.Name = "rjToggleButton1";
             this.rjToggleButton1.Size = new System.Drawing.Size(124, 22);
             this.rjToggleButton1.TabIndex = 2;
             this.rjToggleButton1.Text = "rjToggleButton1";
             this.rjToggleButton1.UseVisualStyleBackColor = true;
+            this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(3, 198);
+            this.label1.Location = new System.Drawing.Point(3, 251);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 168);
+            this.label1.Size = new System.Drawing.Size(145, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Modo Escuro";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,16 +174,16 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(509, 310);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(363, 211);
             this.chart1.TabIndex = 16;
             this.chart1.Text = "chart1";
@@ -245,14 +213,69 @@
             // 
             // lbLista
             // 
+            this.lbLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbLista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(163)))), ((int)(((byte)(145)))));
+            this.lbLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLista.FormattingEnabled = true;
             this.lbLista.ItemHeight = 25;
             this.lbLista.Location = new System.Drawing.Point(224, 390);
             this.lbLista.Name = "lbLista";
-            this.lbLista.Size = new System.Drawing.Size(196, 129);
+            this.lbLista.Size = new System.Drawing.Size(196, 125);
             this.lbLista.TabIndex = 19;
+            // 
+            // btnAdicionar
+            // 
+            this.btnAdicionar.BackgroundImage = global::Gerenciador.Kelly.Bolos.Ui.Properties.Resources.Group_95;
+            this.btnAdicionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAdicionar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdicionar.ForeColor = System.Drawing.Color.Black;
+            this.btnAdicionar.Location = new System.Drawing.Point(4, 134);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(139, 61);
+            this.btnAdicionar.TabIndex = 3;
+            this.btnAdicionar.Text = "          Adicionar";
+            this.btnAdicionar.UseVisualStyleBackColor = true;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
+            // 
+            // btnTables
+            // 
+            this.btnTables.BackgroundImage = global::Gerenciador.Kelly.Bolos.Ui.Properties.Resources.Group_94;
+            this.btnTables.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTables.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTables.Location = new System.Drawing.Point(4, 67);
+            this.btnTables.Name = "btnTables";
+            this.btnTables.Size = new System.Drawing.Size(139, 61);
+            this.btnTables.TabIndex = 2;
+            this.btnTables.Text = "          Tabelas";
+            this.btnTables.UseVisualStyleBackColor = true;
+            this.btnTables.Click += new System.EventHandler(this.btnTables_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.BackgroundImage = global::Gerenciador.Kelly.Bolos.Ui.Properties.Resources.Group_93;
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHome.Location = new System.Drawing.Point(3, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(139, 61);
+            this.btnHome.TabIndex = 1;
+            this.btnHome.Text = "         Home";
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Gerenciador.Kelly.Bolos.Ui.Properties.Resources.Group_96;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 198);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(138, 50);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // HomePage
             // 
@@ -280,7 +303,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,7 +315,6 @@
         private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private RJToggleButton rjToggleButton1;
         private System.Windows.Forms.Label lblFaturamento;
         private System.Windows.Forms.Label lblLucro;
@@ -305,5 +327,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lbLista;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

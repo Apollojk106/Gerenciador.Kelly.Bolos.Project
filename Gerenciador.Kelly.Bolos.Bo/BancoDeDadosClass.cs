@@ -14,7 +14,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     public class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=etec;database=KellyBolos";
+        const string conexao = "server=localhost;uid=root;pwd=jk106;database=KellyBolos";
 
         //HomePage
 
@@ -23,8 +23,8 @@ namespace Gerenciador.Kelly.Bolos.Bo
             float[] Valores = new float[3];
 
             Valores[1] = RetornarValorGasto();  //Gasto
-            Valores[2] = RetorValorCobredo();   //Lucro
-            Valores[0] = Valores[1] + Valores[2];  //Faturamento
+            Valores[0] = RetorValorCobrado();  //Faturamento
+            Valores[2] = Valores[0] - Valores[1];   //Lucro
 
             return Valores;
         }
@@ -55,7 +55,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return resultado;
         }
 
-        private float RetorValorCobredo() 
+        private float RetorValorCobrado() 
         {
             float resultado = 0;
 

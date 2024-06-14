@@ -138,5 +138,23 @@
       <Name>Gerenciador.Kelly.Bolos.Bo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 95.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 96 %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
