@@ -156,6 +156,76 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return items;
         }
 
+        public Dictionary<string, float> LucroDoMes() 
+        {
+            Dictionary<string, float> Resultado = new Dictionary<string, float>();
+
+            string[] mes = ListadosUltimosMes();
+
+            //float[] LucroBruto = LucroDoMes();
+
+            return Resultado;
+        }
+
+        private float[] LucroDoMes(string[] Mes) 
+        {
+            float[] resultado = new float[5];
+            float faturamentototal = 0; 
+            float gastototal = 0;
+
+            foreach (var data in Mes)
+            {
+                string query = $"SELECT ValorGasto,ValorCobrado FROM Pedidos ";
+
+                using (MySqlConnection connection = new MySqlConnection(conexao))
+                {
+                    connection.Open();
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        if (reader["ValorGasto"] != DBNull.Value)
+                        {
+                            gastototal += float.Parse(reader["ValorGasto"].ToString());
+                        }
+                        if (reader["ValorCobrado"] != DBNull.Value)
+                        {
+                            faturamentototal += float.Parse(reader["ValorCobrado"].ToString());
+                        }
+                    }
+
+                
+                }
+            }
+
+
+            return resultado;
+        }
+
+        private string[] ListadosUltimosMes() 
+        {
+            DateTime dataAtual = DateTime.Today;
+            string[] resultado = new string[5];
+
+            for(int x = 0; x < 5; x++)
+            {
+                float YearTemp = dataAtual.Year;
+                float Mounthtemp = dataAtual.Month - x;
+                if (Mounthtemp <= 0) 
+                {
+                    Mounthtemp = Mounthtemp + 12;
+                    YearTemp = YearTemp - 1;
+                }
+
+                resultado[x] = $"{YearTemp}-{Mounthtemp}";
+            }
+
+            return resultado; 
+        }
+
         //TabelasPage
 
         public void DeletarPedido(string ID)

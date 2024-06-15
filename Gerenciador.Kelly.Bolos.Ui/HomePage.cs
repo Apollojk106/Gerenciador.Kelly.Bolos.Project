@@ -14,9 +14,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
 {
     public partial class HomePage : Form
     {
-        public HomePage()
+        public HomePage(bool Darkmode)
         {
             InitializeComponent();
+            rjToggleButton1.Checked = Darkmode;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -44,7 +45,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void btnTables_Click(object sender, EventArgs e)
         {
-            TabelasPage page = new TabelasPage();
+            TabelasPage page = new TabelasPage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
  
@@ -52,7 +53,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            AdicionarPage page = new AdicionarPage();
+            AdicionarPage page = new AdicionarPage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
             
@@ -76,7 +77,17 @@ namespace Gerenciador.Kelly.Bolos.Ui
             {
                 lbLista.Items.Add($"{count}º-{texto}");
                 count++;
-            }          
+            }
+
+            chartLine.Series["Lucro"].Points.AddXY("Lucro", valores[2]);
+            chartLine.Series["Lucro"].Points.AddXY("Gasto", valores[1]);
+            chartLine.Series["Lucro"].Points.AddXY("Fatoramento", valores[0]);
+            /*
+            Dictionary<string, float> LucroDoMes = banco.LucroDoMes();
+            foreach(KeyValuePair<string, float> x in LucroDoMes) {
+                chartLine.Series["Lucro"].Points.AddXY(x.Key.ToString(),x.Value);
+            }
+            */
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -86,7 +97,14 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rjToggleButton1.Checked == false)
+            {
+                this.BackColor = Color.FromArgb(242, 228, 216);
+            }
+            else 
+            {
+                this.BackColor = Color.FromArgb(135, 135, 135);
+            }
         }
     }
 }

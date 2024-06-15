@@ -14,9 +14,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
 {
     public partial class AdicionarPage : Form
     {
-        public AdicionarPage()
+        public AdicionarPage(bool DarkMode)
         {
             InitializeComponent();
+            rjToggleButton1.Checked = DarkMode;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -61,8 +62,8 @@ namespace Gerenciador.Kelly.Bolos.Ui
         {
             string Values = "";
             string Columns = "";
-            if (ckbEndereço.Checked) { Values += $",'{txtEndereço.Text}'"; Columns += ",Endereço"; }
-            if (ckbDescrição.Checked) { Values += $",'{txtDescrição.Text}'"; Columns += ",Descrição"; }
+            if (ckbEndereço.Checked) { Values += $",'{txtEndereço.Text}'"; Columns += ",Endereco"; }
+            if (ckbDescrição.Checked) { Values += $",'{txtDescrição.Text}'"; Columns += ",Descricao"; }
 
 
             AdiocionarClass adiocionar = new AdiocionarClass(
@@ -109,16 +110,28 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void btnTables_Click_1(object sender, EventArgs e)
         {
-            TabelasPage page = new TabelasPage();
+            TabelasPage page = new TabelasPage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
         }
 
         private void btnHome_Click_1(object sender, EventArgs e)
         {
-            HomePage page = new HomePage();
+            HomePage page = new HomePage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
+        }
+
+        private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rjToggleButton1.Checked == false)
+            {
+                this.BackColor = Color.FromArgb(242, 228, 216);
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb(135, 135, 135);
+            }
         }
     }
 }

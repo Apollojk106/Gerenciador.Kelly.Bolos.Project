@@ -50,21 +50,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(182, 88);
+            this.dataGridView1.Location = new System.Drawing.Point(182, 102);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(737, 441);
+            this.dataGridView1.Size = new System.Drawing.Size(737, 427);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(480, 17);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(427, 15);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 20);
+            this.label2.Size = new System.Drawing.Size(220, 32);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ultimos Pedidos";
             // 
@@ -82,26 +82,29 @@
             // 
             // cbFiltro
             // 
+            this.cbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Location = new System.Drawing.Point(202, 58);
             this.cbFiltro.Name = "cbFiltro";
-            this.cbFiltro.Size = new System.Drawing.Size(277, 24);
+            this.cbFiltro.Size = new System.Drawing.Size(277, 28);
             this.cbFiltro.TabIndex = 9;
             this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged_1);
             // 
             // cbResultado
             // 
             this.cbResultado.Enabled = false;
+            this.cbResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbResultado.FormattingEnabled = true;
             this.cbResultado.Location = new System.Drawing.Point(510, 57);
             this.cbResultado.Name = "cbResultado";
-            this.cbResultado.Size = new System.Drawing.Size(254, 24);
+            this.cbResultado.Size = new System.Drawing.Size(254, 28);
             this.cbResultado.TabIndex = 10;
             this.cbResultado.SelectedIndexChanged += new System.EventHandler(this.cbResultado_SelectedIndexChanged);
             // 
             // btnLimpar
             // 
             this.btnLimpar.Enabled = false;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpar.ForeColor = System.Drawing.Color.Red;
             this.btnLimpar.Location = new System.Drawing.Point(799, 50);
             this.btnLimpar.Name = "btnLimpar";
@@ -114,6 +117,7 @@
             // btnDeletar
             // 
             this.btnDeletar.Enabled = false;
+            this.btnDeletar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletar.ForeColor = System.Drawing.Color.Red;
             this.btnDeletar.Location = new System.Drawing.Point(799, 17);
             this.btnDeletar.Name = "btnDeletar";
@@ -158,6 +162,7 @@
             this.rjToggleButton1.TabIndex = 2;
             this.rjToggleButton1.Text = "rjToggleButton1";
             this.rjToggleButton1.UseVisualStyleBackColor = true;
+            this.rjToggleButton1.CheckedChanged += new System.EventHandler(this.rjToggleButton1_CheckedChanged);
             // 
             // label1
             // 

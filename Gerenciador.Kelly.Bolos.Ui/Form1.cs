@@ -27,7 +27,7 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
             if(temp ==  "Logado com sucesso!")
             {
-                HomePage home = new HomePage();
+                HomePage home = new HomePage(false);
                 home.Show();
                 this.Hide();
             }

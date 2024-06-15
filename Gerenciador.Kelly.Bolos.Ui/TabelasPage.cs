@@ -13,9 +13,10 @@ namespace Gerenciador.Kelly.Bolos.Ui
 {
     public partial class TabelasPage : Form
     {
-        public TabelasPage()
+        public TabelasPage(bool DarkMode)
         {
             InitializeComponent();
+            rjToggleButton1.Checked = DarkMode;
         }
 
         string SelectCell;
@@ -167,16 +168,28 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void btnHome_Click_1(object sender, EventArgs e)
         {
-            HomePage page = new HomePage();
+            HomePage page = new HomePage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
         }
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
-            AdicionarPage page = new AdicionarPage();
+            AdicionarPage page = new AdicionarPage(rjToggleButton1.Checked);
             page.Show();
             this.Hide();
+        }
+
+        private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rjToggleButton1.Checked == false)
+            {
+                this.BackColor = Color.FromArgb(242, 228, 216);
+            }
+            else
+            {
+                this.BackColor = Color.FromArgb(135, 135, 135);
+            }
         }
     }
 }
