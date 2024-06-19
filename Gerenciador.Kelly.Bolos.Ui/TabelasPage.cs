@@ -182,14 +182,43 @@ namespace Gerenciador.Kelly.Bolos.Ui
 
         private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
         {
+            Color Colorchoice = Color.White;
+
             if (rjToggleButton1.Checked == false)
             {
                 this.BackColor = Color.FromArgb(242, 228, 216);
+                Colorchoice = Color.Black;
+
             }
             else
             {
-                this.BackColor = Color.FromArgb(135, 135, 135);
+                this.BackColor = Color.FromArgb(51, 51, 51);
             }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is Label || control is Button || control is CheckBox) // Check for Label, Button, and CheckBox
+                {
+                    if (control is Label label) // Cast to Label if it's a Label
+                    {
+                        label.ForeColor = Colorchoice; // Set font color for Label
+                    }
+                    else if (control is Button button) // Cast to Button if it's a Button
+                    {
+                        button.ForeColor = Colorchoice;// Set font color for Button
+                    }
+                    else if (control is CheckBox checkbox) // Cast to CheckBox if it's a CheckBox
+                    {
+                        checkbox.ForeColor = Colorchoice;// Set font color for CheckBox
+                    }
+                }
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (rjToggleButton1.Checked == true) { rjToggleButton1.Checked = false; }
+            else { rjToggleButton1.Checked = true; }
         }
     }
 }

@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -482,8 +484,87 @@ namespace Gerenciador.Kelly.Bolos.Bo
             }
         }
 
-       
+        internal string retornarID(string nome)
+        {
+            string query = $"SELECT ID FROM Pedidos WHERE Nome = @Nome ORDER BY ID DESC;";
 
+            try
+            {
+                using (MySqlConnection Conexao = new MySqlConnection(conexao))
+                {
 
-    }
+                    Conexao.Open();
+
+                    using (MySqlCommand comando = new MySqlCommand(query, Conexao))
+                    {
+
+                        comando.Parameters.AddWithValue("@Nome", nome);
+
+                        using (MySqlDataReader leitor = comando.ExecuteReader())
+                        {
+
+                            if (leitor.HasRows)
+                            {
+
+                                while (leitor.Read())
+                                {
+                                    string resultadostring = (leitor.GetInt32(0)).ToString();
+                                    return ($"{resultadostring}");
+                                }
+                                
+                            }
+                            return "1";
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                return ex.ToString() ;
+            }
+        
+        }
+
+        internal string retornarData(string ID)
+        {
+            string query = $"SELECT Data FROM Pedidos WHERE ID = @ID ;";
+            string formattedDate = null;
+
+            try
+            {
+                using (MySqlConnection Conexao = new MySqlConnection(conexao))
+                {
+
+                    Conexao.Open();
+
+                    using (MySqlCommand comando = new MySqlCommand(query, Conexao))
+                    {
+
+                        comando.Parameters.AddWithValue("@ID", ID);
+
+                        using (     MySqlDataReader leitor = comando.ExecuteReader())
+                        {
+
+                            if (leitor.HasRows)
+                            {
+                                if (leitor.Read()) // Read only the first row
+                                {
+                                    // Get the date value from the "Data" column and format it
+                                    formattedDate = ((DateTime)leitor["Data"]).ToString("yyyy-MM-dd"); // Adjust format if needed
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                formattedDate = null;
+            }
+            return formattedDate;
+
+        }
+    }   
 }

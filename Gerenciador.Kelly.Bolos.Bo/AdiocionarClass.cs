@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -116,5 +117,56 @@ namespace Gerenciador.Kelly.Bolos.Bo
             return true;
         }
 
+        public void GerarTXT()
+                        {
+            string caminho = Caminho() + "Pedidos";
+
+            BancoDeDadosClass banco = new BancoDeDadosClass();
+            string ID = banco.retornarID(Nome);
+            string data = banco.retornarData(ID);
+
+            string[] linhas = ($"--------------------------/" +
+                $"Aqui temos o Pedido {ID}/" +
+                $"Da Pessoa: {Nome} pedido em {data}/" +
+                $"Que deseja: {Item} de {Kg}Kg/" +
+                $"Custando: R${ValorCobrado}/" +
+                $"--------------------------/").Split('/');
+
+            if (!Directory.Exists(caminho))
+            {
+                // Cria a pasta se não existir
+                Directory.CreateDirectory(caminho);
+                Console.WriteLine("Pasta criada com sucesso: {0}", caminho);
+            }
+
+
+            string caminhoArquivo = caminho + $"\\Pedido-{ID}.txt";
+            if (File.Exists(caminhoArquivo))
+            {
+                File.Delete(caminhoArquivo);
+                Console.WriteLine("Arquivo criado");
+            }
+
+           
+
+            using (StreamWriter writer = new StreamWriter(caminhoArquivo))
+            {
+                foreach (string linha in linhas)
+                {
+                    writer.WriteLine(linha);
+                }
+
+            }
+        }
+
+        public string Caminho()
+        {
+            string diretorioExecutavel = AppDomain.CurrentDomain.BaseDirectory;
+
+            string caminhoSolucao = Path.GetFullPath(Path.Combine(diretorioExecutavel, @"..\..\"));
+
+            return caminhoSolucao;
+
+        }
     }
 }

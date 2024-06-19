@@ -1,0 +1,7 @@
+--------------------------
+Aqui temos o Pedido 64
+Da Pessoa: a pedido em 2024-06-19
+Que deseja: a de 2Kg
+Custando: R$2
+--------------------------
+

@@ -58,6 +58,7 @@
             this.btnTables = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.txtKg = new System.Windows.Forms.TextBox();
+            this.btnLimpar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -208,9 +209,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(163)))), ((int)(((byte)(145)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(746, 134);
+            this.button1.Location = new System.Drawing.Point(746, 122);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 108);
+            this.button1.Size = new System.Drawing.Size(146, 108);
             this.button1.TabIndex = 12;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = false;
@@ -221,11 +222,11 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(163)))), ((int)(((byte)(145)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(746, 313);
+            this.button2.Location = new System.Drawing.Point(746, 274);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 108);
+            this.button2.Size = new System.Drawing.Size(146, 108);
             this.button2.TabIndex = 13;
-            this.button2.Text = "Adicionar e Gerar Boleto";
+            this.button2.Text = "Adicionar e Gerar Comanda.TXT";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -303,6 +304,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(138, 50);
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // rjToggleButton1
             // 
@@ -376,12 +378,27 @@
             this.txtKg.Size = new System.Drawing.Size(285, 30);
             this.txtKg.TabIndex = 3;
             // 
+            // btnLimpar
+            // 
+            this.btnLimpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(163)))), ((int)(((byte)(145)))));
+            this.btnLimpar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpar.Location = new System.Drawing.Point(746, 446);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(146, 43);
+            this.btnLimpar.TabIndex = 29;
+            this.btnLimpar.Text = "Limpar campos";
+            this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.button4_Click);
+            // 
             // AdicionarPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(228)))), ((int)(((byte)(216)))));
             this.ClientSize = new System.Drawing.Size(981, 558);
+            this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtItem);
             this.Controls.Add(this.cbkData);
@@ -450,5 +467,6 @@
         private System.Windows.Forms.Button btnTables;
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.TextBox txtKg;
+        private System.Windows.Forms.Button btnLimpar;
     }
 }

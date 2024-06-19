@@ -53,18 +53,6 @@
     <Compile Include="AdicionarPage.Designer.cs">
       <DependentUpon>AdicionarPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlterarSenha.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AlterarSenha.Designer.cs">
-      <DependentUpon>AlterarSenha.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EnviarCodigo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EnviarCodigo.Designer.cs">
-      <DependentUpon>EnviarCodigo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,12 +78,6 @@
     </Compile>
     <EmbeddedResource Include="AdicionarPage.resx">
       <DependentUpon>AdicionarPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AlterarSenha.resx">
-      <DependentUpon>AlterarSenha.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EnviarCodigo.resx">
-      <DependentUpon>EnviarCodigo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
