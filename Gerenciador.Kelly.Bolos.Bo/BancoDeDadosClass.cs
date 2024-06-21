@@ -16,7 +16,7 @@ namespace Gerenciador.Kelly.Bolos.Bo
     public class BancoDeDadosClass
 
     {
-        const string conexao = "server=localhost;uid=root;pwd=jk106;database=KellyBolos";
+        const string conexao = "server=kellybolos.mysql.database.azure.com;database=kellybolos;username=azureroot;password=!jkroot106;";
 
         //HomePage
 
